@@ -8,17 +8,21 @@ repositories {
 
 buildscript {
     repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
         mavenCentral()
         mavenLocal()
         jcenter()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.4.34")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:3.1.15")
     }
 }
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
 apply plugin: 'net.serenity-bdd.aggregator'
 
 sourceCompatibility = 1.8
@@ -44,6 +48,7 @@ dependencies {
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-rest:${serenityScreenPlayRest}",
             "net.serenity-bdd:serenity-cucumber:${serenityCucumber}",
+            "net.serenity-bdd:serenity-report-resources:${serenityCucumber}",
             "junit:junit:${junitVersion}",
             "org.assertj:assertj-core:${assertJVersion}",
             "org.hamcrest:hamcrest-all:${hamcrestAll}"

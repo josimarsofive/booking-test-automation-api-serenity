@@ -19,6 +19,7 @@ ext{
                             screenplay: "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
                             rest: "net.serenity-bdd:serenity-screenplay-rest:${serenityScreenPlayRest}",
                             cucumber: "net.serenity-bdd:serenity-cucumber:${serenityCucumber}",
+                            report: "net.serenity-bdd:serenity-report-resources:${serenityCucumber}",
 
                     ],
                     junit: "junit:junit:${junitVersion}",
