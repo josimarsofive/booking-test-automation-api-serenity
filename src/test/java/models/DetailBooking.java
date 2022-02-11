@@ -1,45 +1,29 @@
 package models;
 
 
-import java.util.List;
-
 public class DetailBooking {
     private String firstname;
     private String lastname;
-    private String totalprice;
-    private String depositpaid;
-
-    public CheckBooking getCheckBooking() {
-        return checkBooking;
-    }
-
-    public void setCheckBooking(CheckBooking checkBooking) {
-        this.checkBooking = checkBooking;
-    }
-
-    private CheckBooking checkBooking;
-    //private List<CheckBooking> data = null;
+    private Integer totalprice;
+    private Boolean depositpaid;
+    private CheckBooking bookingdates;
     private String additionalneeds;
 
-    public String getTotalprice() {
+    public Integer getTotalprice() {
         return totalprice;
     }
 
-    public void setTotalprice(String totalprice) {
+    public void setTotalprice(Integer totalprice) {
         this.totalprice = totalprice;
     }
 
-    public String getDepositpaid() {
+    public Boolean getDepositpaid() {
         return depositpaid;
     }
 
-    public void setDepositpaid(String depositpaid) {
+    public void setDepositpaid(Boolean depositpaid) {
         this.depositpaid = depositpaid;
     }
-
-
-
-    // Getter Methods
 
     public String getFirstname() {
         return firstname;
@@ -49,25 +33,28 @@ public class DetailBooking {
         return lastname;
     }
 
-
     public String getAdditionalneeds() {
         return additionalneeds;
     }
 
-    // Setter Methods
-
-    public void setFirstname( String firstname ) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public void setLastname( String lastname ) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
-
-    public void setAdditionalneeds( String additionalneeds ) {
+    public void setAdditionalneeds(String additionalneeds) {
         this.additionalneeds = additionalneeds;
     }
 
+    public CheckBooking getBookingdates() {
+        return bookingdates;
+    }
+
+    public void setBookingdates(CheckBooking bookingdates) {
+        this.bookingdates = bookingdates;
+    }
 
 }

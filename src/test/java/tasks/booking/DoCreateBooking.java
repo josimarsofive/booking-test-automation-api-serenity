@@ -1,6 +1,7 @@
 package tasks.booking;
 
 import io.restassured.http.ContentType;
+import models.DetailBooking;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -10,15 +11,15 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class DoCreateBooking implements Task {
 
-    private final Object chkBooking;
+    private final DetailBooking chkBooking;
 
 
-    public DoCreateBooking(Object chkBooking){
+    public DoCreateBooking(DetailBooking chkBooking){
         this.chkBooking = chkBooking;
 
     }
 
-    public static Performable createBooking(Object chkBooking){
+    public static Performable createBooking(DetailBooking chkBooking){
        return instrumented (DoCreateBooking.class,chkBooking);
     }
     @Override
