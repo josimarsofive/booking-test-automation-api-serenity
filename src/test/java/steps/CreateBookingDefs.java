@@ -2,7 +2,6 @@ package steps;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import models.CheckBooking;
 import models.DetailBooking;
@@ -17,8 +16,8 @@ public class CreateBookingDefs {
 
     private static String baseUrl = "https://restful-booker.herokuapp.com";
 
-    Actor josimar;
-    DetailBooking detail = new DetailBooking();
+    private Actor josimar;
+    private DetailBooking detail;
 
     @Before
     public void setup() {
@@ -29,16 +28,23 @@ public class CreateBookingDefs {
 
     @When("he sends the information required for create booking")
     public void requireInformationRequestCreateBooking(DataTable table) {
-        List<Map<String, String>> signForms = table.asMaps();
-        for (Map<String, String> form : signForms) {
-            detail.setFirstname(form.get("firstname"));
-            detail.setLastname(form.get("lastname"));
-            detail.setTotalprice(Integer.valueOf(form.get("totalprice")));
-            detail.setDepositpaid(Boolean.valueOf(form.get("depositpaid")));
-            detail.setBookingdates(new CheckBooking(form.get("checkin"), form.get("checkout")));
-            detail.setAdditionalneeds(form.get("additionalneeds"));
-        }
+        List<Map<String, String>> forms = table.asMaps();
+        Map<String, String> form = forms.get(0);
+        detail = form(form);
+    }
 
+    private DetailBooking form(Map<String, String> form) {
+        DetailBooking detail = new DetailBooking();
+        detail.firstname = form.get("firstname");
+        detail.lastname = form.get("lastname");
+        detail.totalprice = Integer.valueOf(form.get("totalprice"));
+        detail.depositpaid = Boolean.valueOf(form.get("depositpaid"));
+        detail.bookingdates = new CheckBooking(
+                form.get("checkin"),
+                form.get("checkout")
+        );
+        detail.additionalneeds = form.get("additionalneeds");
+        return detail;
     }
 
     @When("create booking")
